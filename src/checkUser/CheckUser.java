@@ -29,6 +29,7 @@ public class CheckUser {
 
         System.out.println("------------------------------------");
         firstUser.purchaseOfUserPrint();
+        firstUser.addDiscountForUser(5);
         System.out.println("\n");
 
 //        information about second user
@@ -49,6 +50,7 @@ public class CheckUser {
         secondUser.makePurchase(20.0);
         System.out.println("------------------------------------");
         secondUser.purchaseOfUserPrint();
+        secondUser.addDiscountForUser(10);
 
         System.out.println("\n");
 
@@ -71,9 +73,11 @@ public class CheckUser {
 
         System.out.println("------------------------------------");
         thirdUser.purchaseOfUserPrint();
+        thirdUser.addDiscountForUser(20);
 
         System.out.println("\n");
         User.printTotalAmountOfSpentMoney();
+        User.addDiscount();
 
     }
 }

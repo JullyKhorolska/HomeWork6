@@ -40,17 +40,10 @@ public class User {
 
     // set-function for user's password validation
     public void setPassword(String password) {
-
-        if(!password.isEmpty()) {
-            if(!password.contains(" ")){
-                if (password.length() != 8 ) {
-                    System.out.println("Password must contain 8 symbols");
-                } else if (!password.matches("(.*)[0-9](.*)")){
-                    System.out.println("Password must contain numbers");
-                } else if (password.equals(password.toLowerCase())){
-                    System.out.println("Password must contain not less one uppercase symbol");
-                } else this.password = password;
-            } else System.out.println("Please, enter password without backspaces");
+        if(!password.contains(" ") && password.length() == 8) {
+            if(password.matches("(.*)[0-9](.*)") && password.equals(password.toLowerCase())){
+                System.out.println("Password must contain numbers and not less one uppercase symbol");
+            } else this.password = password;
         } else System.out.println("Please, enter password with 8 symbols");
     }
 

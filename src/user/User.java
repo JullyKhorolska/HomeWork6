@@ -1,22 +1,26 @@
 package user;
 public class User {
-    public User (){
+    public User() {
     }
-    public User (String userName){
+
+    public User(String userName) {
 
         this.userName = userName;
     }
-    public User (String userName, String password){
+
+    public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
+
     public String userName;
-    private  int age;
+    private int age;
     private String password;
     public String email;
     public boolean isActive;
     static public double amountSpentMoney = 0;
     public double purchasePrice = 0;
+    static double allDiscount;
 
     public int getAge() {
         return age;
@@ -24,8 +28,8 @@ public class User {
 
     // set-function for user's age validation
     public void setAge(int age) {
-        if(age > 0 ){
-            if(age < 18){
+        if (age > 0) {
+            if (age < 18) {
                 this.age = age;
                 System.out.println(this.age + " years" + " - is less than 18." + " You can't make purchase");
             } else this.age = age;
@@ -33,6 +37,7 @@ public class User {
             System.out.println(this.age + " years" + " - isn't valid." + " You must enter your age!");
         }
     }
+
     public String getPassword() {
 
         return password;
@@ -40,23 +45,23 @@ public class User {
 
     // set-function for user's password validation
     public void setPassword(String password) {
-        if(!password.contains(" ") && password.length() == 8) {
-            if(password.matches("(.*)[0-9](.*)") && password.equals(password.toLowerCase())){
+        if (!password.contains(" ") && password.length() == 8) {
+            if (password.matches("(.*)[0-9](.*)") && password.equals(password.toLowerCase())) {
                 System.out.println("Password must contain numbers and not less one uppercase symbol");
             } else this.password = password;
         } else System.out.println("Please, enter password with 8 symbols");
     }
 
     //  function that counts sum of purchase by one user and total sum of purchase by all users
-    public void makePurchase(double purchasePrise){
-        if(purchasePrise >= 0){
+    public void makePurchase(double purchasePrise) {
+        if (purchasePrise >= 0) {
             User.amountSpentMoney += purchasePrise;
             this.purchasePrice += purchasePrise;
-            if(User.amountSpentMoney >= 100){
+            if (User.amountSpentMoney >= 100) {
                 isActive = true;
             }
             System.out.println(this.userName + " made purchase on: " + purchasePrise);
-            if(isActive){
+            if (isActive) {
                 System.out.println("You are active. Keep it up!");
             } else {
                 System.out.println("You aren't active. Let's make another purchase!");
@@ -65,13 +70,25 @@ public class User {
     }
 
     //  function that displays total sum of purchase by the user
-    public void purchaseOfUserPrint(){
+    public void purchaseOfUserPrint() {
         System.out.println(this.userName + " spent " + this.purchasePrice);
     }
 
     //  function that displays total sum of purchase by ALL users
-    static public void printTotalAmountOfSpentMoney(){
+    static public void printTotalAmountOfSpentMoney() {
         System.out.println("All users spent " + amountSpentMoney);
     }
+
+    //  function that displays discount for each user
+    public void addDiscountForUser(int percent) {
+        double discount = this.purchasePrice * percent / 100.0;
+        allDiscount += discount;
+        System.out.println(this.userName + " has discount " + discount);
+    }
+    //  function that displays discount for ALL users
+    static public void addDiscount() {
+        System.out.println("Total discount of all users is " + allDiscount);
+    }
 }
+
 

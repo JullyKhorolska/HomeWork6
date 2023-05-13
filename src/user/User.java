@@ -17,12 +17,10 @@ public class User {
     private int age;
     private String password;
     public String email;
-    public String address;
     public boolean isActive;
     static public double amountSpentMoney = 0;
     public double purchasePrice = 0;
     static double allDiscount;
-
 
     public int getAge() {
         return age;

@@ -30,7 +30,6 @@ public class User {
                 System.out.println(this.age + " years" + " - is less than 18." + " You can't make purchase");
             } else this.age = age;
         } else {
-            this.age = age;
             System.out.println(this.age + " years" + " - isn't valid." + " You must enter your age!");
         }
     }

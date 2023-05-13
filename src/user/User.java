@@ -14,7 +14,7 @@ public class User {
     private  int age;
     private String password;
     public String email;
-    static boolean isActive;
+    public boolean isActive;
     static public double amountSpentMoney = 0;
     public double purchasePrice = 0;
 
